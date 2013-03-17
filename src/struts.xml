@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	
+<struts>
+    <constant name="struts.action.extension" value="action,do"/>
+    <constant name="struts.configuration.xml.reload" value="true"></constant>
+    <package name="default" namespace="/" extends="struts-default">
+       <!--
+        <action name="user_addInput" class="org.zttc.itat.action.UserAction" method="addInput">
+		    <result name="success">/WEB-INF/user/addInput.jsp</result>
+		</action>
+		<action name="user_add" class="org.zttc.itat.action.UserAction" method="add">
+		    <result name="success">/WEB-INF/user/add.jsp</result>
+		</action>
+		<action name="user_list" class="org.zttc.itat.action.UserAction" method="list">
+		    <result name="success">/WEB-INF/user/list.jsp</result>
+		</action>
+		-->
+		<!--  
+		<action name="user" class="org.zttc.itat.action.UserAction">
+		    <result name="addInput">/WEB-INF/user/addInput.jsp</result>
+		    <result name="add">/WEB-INF/user/add.jsp</result>
+		    <result name="list">/WEB-INF/user/list.jsp</result>
+		</action>
+		-->
+		<action name="*_*" class="org.zttc.itat.action.{1}Action" method="{2}">
+		    <result>/WEB-INF/{1}/{2}.jsp</result>
+		    <result type="redirect" name="r_list">{1}_list.action</result>
+		</action>
+    </package>
+</struts>
